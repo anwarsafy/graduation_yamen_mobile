@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "50333376086",
+    "project_id": "dalel-975d6",
+    "storage_bucket": "dalel-975d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50333376086:android:c4d054ea52321d7add65f7",
+        "android_client_info": {
+          "package_name": "com.example.dalel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZiZcTPAgG8WYh0Wyh53XaH-S6jc1x_Ic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50333376086:android:61a606c4fe171210dd65f7",
+        "android_client_info": {
+          "package_name": "com.example.graduation_yamen_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZiZcTPAgG8WYh0Wyh53XaH-S6jc1x_Ic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
