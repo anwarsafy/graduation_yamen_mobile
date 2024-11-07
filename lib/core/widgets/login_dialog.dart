@@ -42,7 +42,7 @@ class LoginDialogBody extends StatelessWidget {
             style: CustomTextStyles.titleLargeRegular,
           ),
           const SizedBox(height: 16.0),
-          Text(
+          const Text(
             'You_need_to_log_in_to_continue',
             textAlign: TextAlign.center,
           ),

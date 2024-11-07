@@ -1,9 +1,14 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_yamen_mobile/presentation/authentication/cubit/auth_cubit.dart';
 import 'package:graduation_yamen_mobile/presentation/authentication/cubit/auth_state.dart';
+import 'package:graduation_yamen_mobile/presentation/section_of_parent/main_screen/parent_screen.dart';
+import 'package:graduation_yamen_mobile/presentation/section_of_students/main_screen/students_screen.dart';
+import 'package:graduation_yamen_mobile/presentation/section_of_teacher/main_screen/teacher_screen.dart';
 import 'package:graduation_yamen_mobile/presentation/sign_in_screen/sign_in_screen.dart';
 
 import 'firebase_options.dart';
@@ -33,7 +38,7 @@ class MyApp extends StatelessWidget {
         title: 'Simple Auth App',
         theme: ThemeData.light(),
         darkTheme: ThemeData.dark(),
-        themeMode: ThemeMode.system,
+        themeMode: ThemeMode.light,
         initialRoute: '/',
         routes: {
           '/': (context) => const AuthListener(),
@@ -98,59 +103,5 @@ class AuthListener extends StatelessWidget {
     );
   }
 }
-class TeacherHomeScreen extends StatelessWidget {
-  const TeacherHomeScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Teacher Home")),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            context.read<AuthCubit>().signOut();
-          },
-          child: const Text("Sign Out"),
-        ),
-      ),
-    );
-  }
-}
 
-class StudentHomeScreen extends StatelessWidget {
-  const StudentHomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Student Home")),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            context.read<AuthCubit>().signOut();
-          },
-          child: const Text("Sign Out"),
-        ),
-      ),
-    );
-  }
-}
-
-class ParentHomeScreen extends StatelessWidget {
-  const ParentHomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Parent Home")),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            context.read<AuthCubit>().signOut();
-          },
-          child: const Text("Sign Out"),
-        ),
-      ),
-    );
-  }
-}
