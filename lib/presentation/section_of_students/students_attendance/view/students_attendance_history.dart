@@ -9,18 +9,10 @@ import '../viewmodel/student_attendance_state.dart';
 
 // ignore_for_file: use_build_context_synchronously, library_private_types_in_public_api
 
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:graduation_yamen_mobile/core/theme/theme_helper.dart';
-import 'package:qr_code_scanner_plus/qr_code_scanner_plus.dart';
 
-import '../../../../core/widgets/loading_indicator.dart';
-import '../viewmodel/student_attendance_cubit.dart';
-import '../viewmodel/student_attendance_state.dart';
 
 class AttendanceTableScreen extends StatefulWidget {
-  const AttendanceTableScreen({Key? key}) : super(key: key);
+  const AttendanceTableScreen({super.key});
 
   @override
   State<AttendanceTableScreen> createState() => _AttendanceTableScreenState();

@@ -1,10 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduation_yamen_mobile/core/theme/theme_helper.dart';
-import 'package:graduation_yamen_mobile/core/widgets/loading_indicator.dart';
 import 'dart:io';
 
 import '../../../section_of_teacher/teacher_attendance/model/teacher_attendance_model.dart';

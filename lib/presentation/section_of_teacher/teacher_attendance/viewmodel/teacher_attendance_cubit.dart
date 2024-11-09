@@ -16,19 +16,13 @@ class QRCodeCubit extends Cubit<QRCodeState> {
     try {
       emit(state.copyWith(status: QRCodeStatus.generating));
 
-      // Add QR data to Firebase
-      DocumentReference docRef = await _firestore.collection('qr_codes').add(qrData.toMap());
+    await _firestore.collection('qr_codes').add(qrData.toMap());
 
       // Update state with new QRData
       List<QRData> updatedList = List.from(state.qrDataList)..add(qrData);
       emit(state.copyWith(status: QRCodeStatus.generated, qrDataList: updatedList));
 
-      // Remove document after ten seconds
-      Future.delayed(const Duration(minutes: 5), () async {
-        await docRef.delete();
-        updatedList.removeWhere((data) => data.qrID == qrData.qrID);
-        emit(state.copyWith(status: QRCodeStatus.idle, qrDataList: updatedList));
-      });
+
     } catch (e) {
       emit(state.copyWith(status: QRCodeStatus.error));
     }

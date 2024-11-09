@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +11,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 import '../model/teacher_attendance_model.dart';
 import '../viewmodel/teacher_attendance_cubit.dart';
 import '../viewmodel/teacher_attendance_state.dart';
+// ignore: unused_import
 import 'students_of_teacher_attendance.dart';
 
 class QRCodeScreen extends StatefulWidget {

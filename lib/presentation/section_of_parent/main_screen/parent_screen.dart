@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_yamen_mobile/presentation/authentication/cubit/auth_cubit.dart';
 
+import '../note/view/parents_notes_screen.dart';
 import '../parent_attendance/view/history.dart';
 
 class ParentHomeScreen extends StatelessWidget {
@@ -39,6 +40,12 @@ class ParentHomeScreen extends StatelessWidget {
               title: const Text('Attendance History'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) =>  const AttendanceScreenforParent()));
+              },
+            ),
+            ListTile(
+              title: const Text('Notes'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) =>  const ParentNoteScreen(userType: 'parent')));
               },
             ),
 

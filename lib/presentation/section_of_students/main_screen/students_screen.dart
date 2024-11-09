@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_yamen_mobile/presentation/authentication/cubit/auth_cubit.dart';
 
+import '../notes/view/students_note_screen.dart';
 import '../students_attendance/view/student_attendance_screen.dart';
 import '../students_attendance/view/students_attendance_history.dart';
 
@@ -46,6 +47,12 @@ class StudentHomeScreen extends StatelessWidget {
               title: const Text('Attendance History'),
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) =>   const AttendanceTableScreen()));
+              },
+            ),
+            ListTile(
+              title: const Text('Notes'),
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) =>    const NoteScreen(userType: 'student',)));
               },
             ),
 ]
