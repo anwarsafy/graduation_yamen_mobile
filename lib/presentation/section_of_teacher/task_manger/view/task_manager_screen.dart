@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_yamen_mobile/core/theme/colors.dart';
 import 'package:graduation_yamen_mobile/presentation/section_of_teacher/task_manger/view/submisstion.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -23,7 +24,7 @@ class TeacherScreen extends StatelessWidget {
           ),
           title: const Text("Assignment Manager",
               style: TextStyle(color: Colors.white)),
-          backgroundColor: Colors.indigo,
+          backgroundColor:ColorsManager.blue,
           actions: [
             BlocBuilder<AssignmentCubit, AssignmentState>(
               builder: (context, state) {
@@ -52,7 +53,7 @@ class TeacherScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),
               ),
-              backgroundColor: Colors.indigo,
+              backgroundColor: ColorsManager.blue,
             ),
             onPressed: () => _showAddAssignmentDialog(context),
             child: const Text("Add Assignment", style: TextStyle(color: Colors.white)),

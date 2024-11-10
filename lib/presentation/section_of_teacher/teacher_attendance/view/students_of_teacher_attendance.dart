@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../core/theme/colors.dart';
 import '../viewmodel/teacher_attendance_cubit.dart';
 import '../viewmodel/teacher_attendance_state.dart';
 
@@ -21,7 +22,14 @@ class AttendanceScreenForStudentTeacher extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Student Attendance')),
+      appBar: AppBar(
+        backgroundColor: ColorsManager.blue,
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          title: const Text('Student Attendance', style: TextStyle(color: Colors.white)),
+        ),
       body: BlocProvider(
         create: (_) => QRCodeCubit()..fetchTeacherAttendanceData(),
         child: BlocBuilder<QRCodeCubit, QRCodeState>(
@@ -60,7 +68,7 @@ class AttendanceScreenForStudentTeacher extends StatelessWidget {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                const Icon(Icons.email, color: Colors.blueGrey),
+                                const Icon(Icons.email, color: Colors.orange),
                               ],
                             ),
                             const Divider(),
@@ -76,12 +84,18 @@ class AttendanceScreenForStudentTeacher extends StatelessWidget {
                             ),
                             Padding(
                               padding: const EdgeInsets.symmetric(vertical: 4.0),
-                              child: Text(
-                                'MAC Address: ${attendanceData.macAddress}',
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.black87,
-                                ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'MAC Address: ${attendanceData.macAddress}',
+                                    style: const TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.black87,
+                                    ),
+                                  ),
+                                  Image.asset('assets/glogo.png', width: 50, height: 50),
+                                ],
                               ),
                             ),
                             Padding(

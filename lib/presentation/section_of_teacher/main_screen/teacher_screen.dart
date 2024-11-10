@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
+import '../../../core/theme/colors.dart';
 import '../../authentication/cubit/auth_cubit.dart';
 import '../notes/view/teacher_notes_screen.dart';
 import '../task_manger/view/task_manager_screen.dart';
@@ -26,7 +27,7 @@ class _TeacherHomeScreenState extends State<TeacherHomeScreen> {
       slideWidth: MediaQuery.of(context).size.width * 0.65,
       menuScreenTapClose: true,
       duration: const Duration(milliseconds: 400),
-      menuBackgroundColor: Colors.blueGrey,
+      menuBackgroundColor: ColorsManager.blue,
       mainScreen: MainTeacherScreen(
         onMenuPressed: () => _zoomDrawerController.toggle!(),
       ),
@@ -50,13 +51,26 @@ class MainTeacherScreen extends StatelessWidget {
           onPressed: onMenuPressed,
         ),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            context.read<AuthCubit>().signOut();
-          },
-          child: const Text("Sign Out"),
-        ),
+      body: Column(
+        children: [
+          const SizedBox(height: 20),
+          Image.asset('assets/glogo.png'),
+          Center(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                backgroundColor: ColorsManager.blue,
+              ),
+
+              onPressed: () {
+                context.read<AuthCubit>().signOut();
+              },
+              child: const Text("Sign Out", style: TextStyle(color: Colors.white)),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -68,13 +82,13 @@ class TeacherMenuScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey,
+      backgroundColor: ColorsManager.blue,
       body: ListView(
         padding: const EdgeInsets.all(8.0),
         children: <Widget>[
           const DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blueGrey,
+              color: ColorsManager.blue,
             ),
             child: Text(
               'Teacher',

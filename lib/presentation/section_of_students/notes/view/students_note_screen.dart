@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_yamen_mobile/core/theme/colors.dart';
 import 'package:graduation_yamen_mobile/presentation/section_of_students/notes/viewmodel/students_notes_cubit.dart';
 import 'package:graduation_yamen_mobile/presentation/section_of_students/notes/viewmodel/students_notes_state.dart';
 import '../model/students_note_model.dart';
@@ -25,6 +26,7 @@ class _NoteScreenState extends State<NoteScreen> {
       child: Scaffold(
         backgroundColor: Colors.grey[200],
         appBar: AppBar(
+
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () {
@@ -35,7 +37,7 @@ class _NoteScreenState extends State<NoteScreen> {
             '${widget.userType} Notes',
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24, color: Colors.white),
           ),
-          backgroundColor: Colors.indigo,
+          backgroundColor: ColorsManager.blue,
         ),
         body: BlocBuilder<NoteCubit, NoteStateUS>(
           builder: (context, state) {
@@ -143,7 +145,7 @@ class _NoteScreenState extends State<NoteScreen> {
         const SizedBox(height: 10),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.indigo,
+            backgroundColor: ColorsManager.blue,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),

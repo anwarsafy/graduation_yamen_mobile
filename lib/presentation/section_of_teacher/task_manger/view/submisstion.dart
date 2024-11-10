@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_yamen_mobile/core/theme/colors.dart';
 import 'package:graduation_yamen_mobile/core/widgets/loading_indicator.dart';
 import 'package:intl/intl.dart';
 import '../viewmodel/task_manger_cubit.dart';
@@ -24,7 +25,7 @@ class _TeacherSubmissionScreenState extends State<TeacherSubmissionScreen> {
             onPressed: () => Navigator.of(context).pop(),
           ),
           title: const Text("All Student Submissions", style: TextStyle(color: Colors.white)),
-          backgroundColor: Colors.indigo,
+          backgroundColor: ColorsManager.blue,
         ),
         body: BlocBuilder<AssignmentCubit, AssignmentState>(
           builder: (context, state) {

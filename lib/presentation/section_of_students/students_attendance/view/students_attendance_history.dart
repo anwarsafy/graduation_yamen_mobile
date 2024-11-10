@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_yamen_mobile/core/theme/theme_helper.dart';
 import 'package:graduation_yamen_mobile/core/widgets/loading_indicator.dart';
 
+import '../../../../core/theme/colors.dart';
 import '../viewmodel/student_attendance_cubit.dart';
 import '../viewmodel/student_attendance_state.dart';
 
@@ -27,11 +28,11 @@ class _AttendanceTableScreenState extends State<AttendanceTableScreen> {
         backgroundColor: appTheme.black,
         appBar: AppBar(
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: appTheme.whiteA700),
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () => Navigator.of(context).pop(),
           ),
-          backgroundColor: appTheme.black,
-          title: Text("Attendance Records", style: TextStyle(color: appTheme.whiteA700)),
+          backgroundColor: ColorsManager.blue,
+          title: const Text("Attendance Records", style: TextStyle(color: Colors.white)),
         ),
         body: BlocBuilder<AttendanceCubit, AttendanceState>(
           builder: (context, state) {
@@ -57,14 +58,15 @@ class _AttendanceTableScreenState extends State<AttendanceTableScreen> {
         final qrCodeData = record['qrCodeData'] ?? {};
 
         return Card(
+          color: Colors.orange,
           child: ExpansionTile(
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("User: ${record['email'] ?? ''}"),
+                Text("User: ${record['email'] ?? ''}", style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.white)),
               ],
             ),
-            subtitle: Text("Subject: ${qrCodeData['subjectName'] ?? 'Unknown'}"),
+            subtitle: Text("Subject: ${qrCodeData['subjectName'] ?? 'Unknown'}", style: const TextStyle(fontWeight: FontWeight.bold,color: Colors.white)),
             children: [
               Padding(
                 padding: const EdgeInsets.all(8.0),

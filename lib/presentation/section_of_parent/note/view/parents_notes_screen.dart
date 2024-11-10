@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/theme/colors.dart';
 import '../model/parents_notes_model.dart';
 import '../viewmodel/parents_notes_cubit.dart';
 import '../viewmodel/parents_notes_state.dart';
@@ -27,6 +28,7 @@ class _ParentNoteScreenState extends State<ParentNoteScreen> {
       child: Scaffold(
         backgroundColor: Colors.grey[200],
         appBar: AppBar(
+
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () {
@@ -37,7 +39,7 @@ class _ParentNoteScreenState extends State<ParentNoteScreen> {
             '${widget.userType} Notes',
             style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24, color: Colors.white),
           ),
-          backgroundColor: Colors.indigo,
+          backgroundColor: ColorsManager.blue,
         ),
         body: BlocBuilder<ParentNoteCubit, ParentNoteStateUS>(
           builder: (context, state) {
@@ -143,7 +145,7 @@ class _ParentNoteScreenState extends State<ParentNoteScreen> {
         const SizedBox(height: 10),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.indigo,
+            backgroundColor: ColorsManager.blue,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../core/theme/colors.dart';
 import '../../../section_of_parent/tasks/viewmodel/parent_tasks_cubit.dart';
 import '../../../section_of_parent/tasks/viewmodel/parent_tasks_state.dart';
 
@@ -28,7 +29,7 @@ class TasksScreenForParent extends StatelessWidget {
             onPressed: () => Navigator.of(context).pop(),
           ),
           title: const Text(' MY Children Tasks History', style: TextStyle(color: Colors.white, fontSize: 20)),
-          backgroundColor: Colors.indigo,
+          backgroundColor: ColorsManager.blue,
         ),
         body: BlocBuilder<TasksCubitParent, TasksStateParent>(
           builder: (context, state) {
@@ -82,9 +83,15 @@ class TasksScreenForParent extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Course: ${task['courseName']}",
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Course: ${task['courseName']}",
+                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                Image.asset('assets/glogo.png', width: 50, height: 50),
+              ],
             ),
             const SizedBox(height: 8),
             Text("Department: ${task['department']}"),

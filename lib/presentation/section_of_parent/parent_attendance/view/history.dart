@@ -5,6 +5,8 @@ import 'package:graduation_yamen_mobile/presentation/section_of_parent/parent_at
 
 import 'package:intl/intl.dart';
 
+import '../../../../core/theme/colors.dart';
+
 class AttendanceScreenforParent extends StatelessWidget {
   const AttendanceScreenforParent({super.key});
 
@@ -20,8 +22,13 @@ class AttendanceScreenforParent extends StatelessWidget {
       create: (context) => AttendanceCubitParent()..fetchAttendanceData(),
       child: Scaffold(
         appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+          backgroundColor: ColorsManager.blue,
           title: const Text('My Children Attendance History',
-              style: TextStyle(fontSize: 17)),
+              style: TextStyle(fontSize: 17, color: Colors.white)),
           centerTitle: true,
         ),
         body: BlocBuilder<AttendanceCubitParent, AttendanceStateParent>(

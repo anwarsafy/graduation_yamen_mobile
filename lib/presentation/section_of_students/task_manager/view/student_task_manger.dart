@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_yamen_mobile/core/theme/colors.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 import '../../task_manager/viewmodel/student_cubit.dart';
@@ -18,12 +19,13 @@ class StudentScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
+
           leading: IconButton(
             icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () => Navigator.of(context).pop(),
           ),
           title: const Text('Student Assignments', style: TextStyle(color: Colors.white)),
-          backgroundColor: Colors.indigo,
+          backgroundColor: ColorsManager.blue,
         ),
         body: BlocBuilder<StudentCubit, StudentState>(
           builder: (context, state) {
@@ -125,7 +127,7 @@ class StudentScreen extends StatelessWidget {
                 icon: const Icon(Icons.upload_file, size: 20, color: Colors.white),
                 label: const Text('Upload Assignment', style: TextStyle(fontSize: 16, color: Colors.white)),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.indigo,
+                  backgroundColor: ColorsManager.blue,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0),
                   ),

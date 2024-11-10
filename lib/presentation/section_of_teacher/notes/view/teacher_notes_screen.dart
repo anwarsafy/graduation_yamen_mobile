@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_yamen_mobile/core/theme/colors.dart';
 import '../model/teacher_notes_model.dart';
 import '../viewmodel/notes_cubit.dart';
 import '../viewmodel/notes_state.dart';
@@ -30,7 +31,7 @@ class _TeacherNoteScreenState extends State<TeacherNoteScreen> {
             },
           ),
           title: const Text('Teacher Notes', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24, color: Colors.white)),
-          backgroundColor: Colors.indigo,
+          backgroundColor: ColorsManager.blue,
           actions: [
             IconButton(
               onPressed: () {
@@ -113,9 +114,15 @@ class _TeacherNoteScreenState extends State<TeacherNoteScreen> {
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              'Assigned to: ${note.assignedTo ?? 'None'}',
-              style: const TextStyle(color: Colors.black54),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Assigned to: ${note.assignedTo ?? 'None'}',
+                  style: const TextStyle(color: Colors.black54),
+                ),
+                Image.asset('assets/glogo.png', width: 50, height: 50),
+              ],
             ),
             const Divider(height: 20, color: Colors.grey),
             _buildReplySection(context, note),
@@ -146,7 +153,7 @@ class _TeacherNoteScreenState extends State<TeacherNoteScreen> {
         const SizedBox(height: 10),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.indigo,
+            backgroundColor: ColorsManager.blue,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),

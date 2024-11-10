@@ -6,6 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:graduation_yamen_mobile/core/theme/theme_helper.dart';
 import 'package:qr_code_scanner_plus/qr_code_scanner_plus.dart';
 
+import '../../../../core/theme/colors.dart';
 import '../../../../core/widgets/loading_indicator.dart';
 import '../viewmodel/student_attendance_cubit.dart';
 import '../viewmodel/student_attendance_state.dart';
@@ -30,15 +31,15 @@ class _StudentAttendanceScreenState extends State<StudentAttendanceScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appTheme.black,
+      backgroundColor: ColorsManager.blue,
       appBar: AppBar(
 
         leading: IconButton(
-          icon:  Icon(Icons.arrow_back, color: appTheme.whiteA700),
+          icon:  const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () => Navigator.of(context).pop( )
         ),
-          backgroundColor: appTheme.black,
-          title:  Text('Scan Attendance QR Code', style: TextStyle(color: appTheme.whiteA700))),
+          backgroundColor: ColorsManager.blue,
+          title:  const Text('Scan Attendance QR Code', style: TextStyle(color: Colors.white))),
       body: BlocProvider(
         create: (_) => AttendanceCubit(),
         child: BlocConsumer<AttendanceCubit, AttendanceState>(
